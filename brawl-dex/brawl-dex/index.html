@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BrawlDex – Guia de Brawlers de Brawl Stars</title>
+  <meta name="description" content="Explore todos os brawlers de Brawl Stars: raridade, classe, gadgets e star powers, com dados da API Brawlify.">
+  <meta name="theme-color" content="#1b1147">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://api.brawlapi.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#lista">Pular para a lista de brawlers</a>
+
+  <header class="topo">
+    <h1>Brawl<span>Dex</span></h1>
+    <p>Todos os brawlers do jogo, direto da API Brawlify. Busque, filtre e toque em um card para ver gadgets e star powers.</p>
+  </header>
+
+  <main>
+    <section class="controles" aria-label="Filtros">
+      <div class="campo">
+        <label for="busca">Buscar brawler</label>
+        <input id="busca" type="search" placeholder="Ex.: Shelly" autocomplete="off">
+      </div>
+      <div class="campo">
+        <label for="raridade">Raridade</label>
+        <select id="raridade"><option value="">Todas</option></select>
+      </div>
+      <div class="campo">
+        <label for="ordem">Ordenar por</label>
+        <select id="ordem">
+          <option value="nome">Nome (A–Z)</option>
+          <option value="raridade">Raridade</option>
+          <option value="recentes">Mais recentes</option>
+        </select>
+      </div>
+    </section>
+
+    <p id="status" class="status" role="status" aria-live="polite">Carregando brawlers…</p>
+    <div id="erro" class="erro" hidden>
+      <p>Não foi possível carregar os dados. Verifique sua conexão.</p>
+      <button id="tentar" type="button">Tentar de novo</button>
+    </div>
+
+    <ul id="lista" class="grade"></ul>
+  </main>
+
+  <dialog id="detalhe" aria-labelledby="det-nome">
+    <button class="fechar" type="button" aria-label="Fechar detalhes">✕</button>
+    <div id="det-conteudo"></div>
+  </dialog>
+
+  <footer>
+    <p>Projeto acadêmico. Dados: <a href="https://brawlapi.com/" target="_blank" rel="noopener">Brawlify API</a>. Brawl Stars é marca da Supercell; este site não é afiliado à empresa.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
